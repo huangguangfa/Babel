@@ -10,14 +10,13 @@ const ast = parser.parse(sourceCode,{
 })
 
 traverse(ast, {
-    CallExpression (path){
-        
+    VariableDeclaration(path){
+        path.buildCodeFrameError(path, {})
     }
+    
 });
 
-const { code } = generate(ast,{
+const { code } = generate(ast);
 
-},sourceCode)
-
-console.log(code)
+// console.log(code)
 
