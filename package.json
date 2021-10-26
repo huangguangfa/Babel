@@ -6,6 +6,7 @@
   "author": "gf <1454556135@qq.com>",
   "license": "MIT",
   "dependencies": {
+    "@babel/core": "^7.14.8",
     "@babel/generator": "^7.14.8",
     "@babel/parser": "^7.14.8",
     "@babel/traverse": "^7.14.8",
