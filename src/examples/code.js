@@ -1,5 +1,3 @@
-let obj = {
-    'o1':1,
-    'o2':2,
-    'o3':3
+function test(){
+    let a = 111;
 }
