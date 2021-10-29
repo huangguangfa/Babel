@@ -1,7 +1,8 @@
 const { transformFromAstSync } = require("@babel/core");
 const parser = require('@babel/parser');
-const traverse = require("@babel/traverse").default
-const generate = require("@babel/generator").default
+const traverse = require("@babel/traverse").default;
+const generate = require("@babel/generator").default;
+const types = require("@babel/types");
 const { fsReadFileSync } = require("../nodeApi/index");
 let sourceCode = fsReadFileSync('./code.js');
 // const insertParametersPlugin = require('./BabelPlugin/insertParametersPlugin');
@@ -9,8 +10,10 @@ let sourceCode = fsReadFileSync('./code.js');
 
 const codes = `
     console.log(1);
-    function func() {
-        console.info(2);
+    function test() {
+    }
+    function demo(){
+        let a = 'aa'
     }
 `
 
@@ -18,20 +21,22 @@ const codes = `
 const ast = parser.parse(codes, { sourceType: 'unambiguous' });
 
 traverse(ast,{
-    CallExpression(path, state){
-        console.log(11111)
-        // console.log(path)
-    }
+    FunctionDeclaration(path){
+        if( generate(path.node.id).code === 'test' ){
+
+        }
+        console.log(path)
+    },
+    // VariableDeclaration(path, state){
+    //     let [ node ] = path.node.declarations;
+    //     node.init.value = 'change value';
+    // }
 })
 
 const { code, map } = generate(ast);
 
 
-// console.log(code, map);
-
-
-
-
+console.log("code",code)
 
 
 // 第一步先把源码转AST树

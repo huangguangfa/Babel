@@ -5,9 +5,7 @@
             "name": "Babel",
             "program": "${workspaceFolder}/src/examples/index.js",
             "request": "launch",
-            "type": "node",
-            "runtimeExecutable": "node",
-            "runtimeArgs": ["index.js"]
+            "type": "node"
         }
     ]
 }
