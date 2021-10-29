@@ -1,6 +1,5 @@
 const parser = require("@babel/parser");
 const traverse = require("@babel/traverse").default
-
 const code = `
     let user = {
         name:'gf',

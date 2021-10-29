@@ -6,7 +6,6 @@ const types = require("@babel/types");
 const { fsReadFileSync } = require("../nodeApi/index");
 let sourceCode = fsReadFileSync('./code.js');
 // const insertParametersPlugin = require('./BabelPlugin/insertParametersPlugin');
-// const testPlugin = require("./BabelPlugin/testPlugin");
 
 const codes = `
     console.log(1);
